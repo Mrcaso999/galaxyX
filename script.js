@@ -203,8 +203,31 @@ document.getElementById('searchInput').addEventListener('input',
     }, 300)
 );
 
+// Xử lý hiển thị quảng cáo
+function handleAds() {
+    const adContainers = document.querySelectorAll('.ad-container');
+    
+    // Thêm class loading cho tất cả quảng cáo
+    adContainers.forEach(container => {
+        container.classList.add('loading');
+    });
+    
+    // Đợi quảng cáo load xong
+    window.addEventListener('load', () => {
+        // Xóa class loading sau khi load xong
+        setTimeout(() => {
+            adContainers.forEach(container => {
+                container.classList.remove('loading');
+            });
+        }, 1000);
+    });
+}
+
 // Khởi tạo với lazy loading
-document.addEventListener('DOMContentLoaded', lazyLoadData);
+document.addEventListener('DOMContentLoaded', () => {
+    lazyLoadData();
+    handleAds();
+});
 
 // Tối ưu interval update
 let updateInterval;
