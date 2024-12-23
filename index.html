@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="6a97888e-site-verification" content="cf6937a6034d779842d6508ab61824e6">
     <title>Galaxy X - Crypto Tracker</title>
     <meta name="description" content="Galaxy X - Theo dõi giá tiền điện tử thời gian thực">
     
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" as="style">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap">
+    
+    <link rel="preload" href="https://a.magsrv.com/ad-provider.js" as="script">
     
     <style>
         body { margin: 0; background: #13151a; }
@@ -33,10 +33,28 @@
             </div>
         </header>
         
+        <div class="ads-wrapper">
+            <!-- Quảng cáo 1 -->
+            <div id="ad-top" class="ad-container">
+                <ins class="eas6a97888e17" data-zoneid="5501898"></ins>
+            </div>
+            
+            <!-- Quảng cáo 2 -->
+            <div id="ad-bottom" class="ad-container">
+                <ins class="eas6a97888e6" data-zoneid="5501900"></ins>
+            </div>
+        </div>
+        
         <div class="crypto-grid">
             <div class="loading-placeholder"></div>
         </div>
     </div>
     <script src="script.js" defer></script>
+    <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            (AdProvider = window.AdProvider || []).push({"serve": {}});
+        });
+    </script>
 </body>
 </html> 
