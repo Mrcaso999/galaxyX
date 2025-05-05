@@ -2,266 +2,183 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Orbitron', sans-serif;
 }
 
-.galaxy-container {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #13151a 0%, #1f2937 100%);
-    position: relative;
-    overflow: hidden;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    padding: 20px;
 }
 
-.stars {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RkFFRkZDMUI5QjBEMTFFM0IxODZBN0ZEMTc4NzgzRjYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RkFFRkZDMUM5QjBEMTFFM0IxODZBN0ZEMTc4NzgzRjYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGQUVGRkMxOTlCMEQxMUUzQjE4NkE3RkQxNzg3ODNGNiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGQUVGRkMxQTlCMEQxMUUzQjE4NkE3RkQxNzg3ODNGNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pk//8vQAAAAmSURBVHjaYmRgYPgPxAyMQMDEgAZA8pggI4YKRihgZMABAAIMAK/9AVpQgFK9AAAAAElFTkSuQmCC');
-    opacity: 0.5;
-    animation: animateStars 300s linear infinite;
-}
-
-@keyframes animateStars {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-1000px);
-    }
-}
-
-header {
-    padding: 2rem;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
 }
 
 h1 {
-    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
     font-size: 2.5rem;
-    text-shadow: 0 0 20px rgba(74, 158, 255, 0.5);
-    margin-bottom: 1.5rem;
-    letter-spacing: 2px;
 }
 
-.search-box {
-    max-width: 400px;
-    margin: 0 auto;
+h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
 }
 
-#searchInput {
-    width: 100%;
-    padding: 0.8rem 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50px;
-    background: rgba(255, 255, 255, 0.05);
-    color: #fff;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    padding-left: 2.5rem;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'%3E%3C/path%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: 0.8rem center;
-    background-size: 1.2rem;
+h3 {
+    color: #3498db;
+    margin-bottom: 15px;
 }
 
-#searchInput:focus {
-    outline: none;
-    border-color: rgba(74, 158, 255, 0.5);
-    box-shadow: 0 0 15px rgba(74, 158, 255, 0.2);
+.loading {
+    text-align: center;
+    padding: 40px 0;
 }
 
-.crypto-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-    padding: 1.5rem;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.crypto-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 1.2rem;
-    color: #fff;
-    transition: all 0.3s ease;
-    display: grid;
-    gap: 0.8rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transform: perspective(1000px) rotateX(0deg);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.crypto-card:hover {
-    transform: perspective(1000px) rotateX(2deg) translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.crypto-card h2 {
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.crypto-card img {
-    width: 32px;
-    height: 32px;
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
     border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
 }
 
-.price {
-    font-size: 1.5rem;
-    color: #4a9eff;
-    font-weight: 600;
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-.change {
-    padding: 0.4rem 0.8rem;
+.summary {
+    background-color: #f8f9fa;
+    padding: 20px;
     border-radius: 8px;
-    font-size: 0.9rem;
-    width: fit-content;
+    margin-bottom: 30px;
 }
 
-.positive {
-    background: rgba(0, 255, 0, 0.1);
-    color: #4ade80;
+.fingerprint-hash {
+    font-size: 1.2rem;
+    word-break: break-all;
 }
 
-.negative {
-    background: rgba(255, 0, 0, 0.1);
-    color: #f87171;
+.fingerprint-hash code {
+    background-color: #e9ecef;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #e74c3c;
 }
 
-.crypto-info {
+.section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.info-grid {
     display: grid;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
 }
 
-@media (max-width: 768px) {
-    .crypto-grid {
-        grid-template-columns: 1fr;
-        padding: 1rem;
-    }
-    
-    h1 {
-        font-size: 2rem;
-    }
-} 
-
-/* Thêm animation loading */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-/* Thêm hiệu ứng loading cho card */
-.crypto-card.loading {
-    animation: pulse 1.5s infinite;
-    background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.05) 25%,
-        rgba(255, 255, 255, 0.08) 50%,
-        rgba(255, 255, 255, 0.05) 75%
-    );
-    background-size: 200% 100%;
-    animation: loading 2s infinite;
-}
-
-@keyframes loading {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-}
-
-/* Thêm scrollbar tùy chỉnh */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
+.info-grid div {
+    padding: 10px;
+    background-color: #f8f9fa;
     border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.3);
+.info-grid div strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #2c3e50;
 }
 
-/* Tối ưu animation */
-@media (prefers-reduced-motion: reduce) {
-    .crypto-card, .stars {
-        animation: none;
-        transition: none;
-    }
+.info-list {
+    columns: 3;
+    column-gap: 20px;
 }
 
-/* Tối ưu loading placeholder */
-.loading-placeholder {
-    grid-column: 1/-1;
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+.info-list div {
+    margin-bottom: 10px;
+    break-inside: avoid;
 }
 
-.loading-placeholder::before {
-    content: '';
-    padding-top: 150%;
-    background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.05) 25%,
-        rgba(255, 255, 255, 0.08) 50%,
-        rgba(255, 255, 255, 0.05) 75%
-    );
-    background-size: 200% 100%;
-    animation: loading 1.5s infinite;
-    border-radius: 12px;
+#canvasContainer {
+    text-align: center;
 }
 
-/* Tối ưu images */
-.crypto-card img {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+#fingerprintCanvas {
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
 }
 
-/* Style cho container quảng cáo */
-.ad-container {
-    max-width: 728px;
-    margin: 1rem auto;
-    min-height: 90px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    overflow: hidden;
+.canvas-hash {
+    font-family: monospace;
+    word-break: break-all;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 4px;
 }
 
-/* Responsive cho quảng cáo */
+.raw-data {
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.raw-data pre {
+    font-family: monospace;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
 @media (max-width: 768px) {
-    .ad-container {
-        margin: 1rem;
-        overflow-x: auto;
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-list {
+        columns: 1;
     }
 }
 
-/* Script quảng cáo mới */
-.ad-provider {
-    width: 100%;
-    height: 100%;
+
+/* Add this to your existing CSS file */
+.export-container {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.export-button {
+    background-color: #3498db;
+    color: white;
     border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.export-button:hover {
+    background-color: #2980b9;
+}
+
+.export-button:active {
+    background-color: #1f6aa5;
 }
