@@ -2,25 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Wolf X</title>
-    <style>
-        body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#1a1a1a;color:#fff;font-family:system-ui,sans-serif;padding:15px}
-        .container{text-align:center;width:100%;max-width:500px}
-        .title{font-size:clamp(2rem,5vw,3rem);margin:0 0 10px}
-        .description{font-size:clamp(1rem,3vw,1.2rem);margin:0 0 25px;color:#888}
-        .button-1{display:inline-block;padding:12px 30px;background:#333;color:#fff;text-decoration:none;border-radius:25px;width:90%;max-width:250px;margin:10px auto}
-        .button-2{display:inline-block;padding:12px 30px;background:#333;color:#fff;text-decoration:none;border-radius:25px;width:90%;max-width:250px;margin:10px auto}
-        .button-1:hover{background:#444}
-        .button-2:hover{background:#444}
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Fingerprint Detector</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.4/fingerprint2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/UAParser.js/0.7.28/ua-parser.min.js"></script>
+    <!-- Removed problematic libraries -->
 </head>
 <body>
     <div class="container">
-        <h1 class="title">Thanh Hùng</h1>
-        <p class="description">Make Money With Trick</p>
-            <a href="https://reurl.cc/eGAqpx" class="button-1">Link 1</a>
-            <a href="https://reurl.cc/eGAqpx" class="button-2">Link 2</a>
+        <h1>Device Fingerprint Detector</h1>
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Collecting device information...</p>
+        </div>
+        <div class="results" id="results" style="display: none;">
+            <div class="summary">
+                <h2>Fingerprint Summary</h2>
+                <div class="fingerprint-hash">
+                    <span>Unique Device ID: </span>
+                    <code id="fingerprintHash">Loading...</code>
+                </div>
+                <!-- Updated export button text -->
+                <div class="export-container">
+                    <button id="exportDoc" class="export-button">Export Full Report</button>
+                </div>
+            </div>
+            
+            <!-- New section for device identification -->
+            <div class="section" id="deviceIdentificationSection">
+                <h3>Device Identification</h3>
+                <div id="deviceIdentification" class="info-grid"></div>
+            </div>
+            
+            <div class="details">
+                <h2>Detailed Information</h2>
+                
+                <div class="section">
+                    <h3>Browser & OS</h3>
+                    <div id="browserInfo" class="info-grid"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Hardware</h3>
+                    <div id="hardwareInfo" class="info-grid"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Network</h3>
+                    <div id="networkInfo" class="info-grid"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Browser Features</h3>
+                    <div id="featuresInfo" class="info-grid"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Canvas Fingerprint</h3>
+                    <div id="canvasContainer">
+                        <canvas id="fingerprintCanvas" width="300" height="150"></canvas>
+                        <div id="canvasHash" class="canvas-hash"></div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>WebGL Information</h3>
+                    <div id="webglInfo" class="info-grid"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Fonts</h3>
+                    <div id="fontsInfo" class="info-list"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Audio Fingerprint</h3>
+                    <div id="audioInfo" class="info-grid"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Battery</h3>
+                    <div id="batteryInfo" class="info-grid"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Sensors & Device Orientation</h3>
+                    <div id="sensorsInfo" class="info-grid"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Raw Components</h3>
+                    <div id="rawComponents" class="raw-data">
+                        <pre id="rawComponentsData"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
